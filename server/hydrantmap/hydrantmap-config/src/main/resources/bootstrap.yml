@@ -1,0 +1,6 @@
+cloud:
+    config:
+      uri: http://localhost:8888
+spring:
+  application:
+    name: hydrantmap-config

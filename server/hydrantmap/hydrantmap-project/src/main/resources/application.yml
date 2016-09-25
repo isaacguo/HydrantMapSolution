@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:h2:~/hydrantmap
+    #username: sa
+    #password: 
+    #driver-class-name: com.h2.com
+  jpa:
+    show-sql: true
+    
+    
+    
+    

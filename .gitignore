@@ -1,0 +1,14 @@
+*.class
+*.jar
+*.war
+*.ear
+.metadata/
+RemoteSystemsTempFiles/
+**/build/
+**/bin/
+**/target
+**/.project
+**/.settings
+.targets.xml
+hs_err_pid*
+.recommenders
