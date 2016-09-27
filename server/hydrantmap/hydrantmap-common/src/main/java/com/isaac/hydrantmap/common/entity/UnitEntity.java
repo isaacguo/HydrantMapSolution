@@ -33,6 +33,7 @@ public class UnitEntity {
 	@JsonManagedReference("unit-person")
 	PersonEntity personInCharge;
 
+	String thumbPicturePath;
 	String planDiagramPath;
 	
 	
