@@ -2,6 +2,9 @@ package com.isaac.hydrantmap.common.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -13,6 +16,10 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 @Table(name = "Units")
 public class UnitEntity {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	Long id;
 	
 	boolean keyUnit;
 	
