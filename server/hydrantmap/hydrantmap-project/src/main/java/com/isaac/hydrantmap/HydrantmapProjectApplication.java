@@ -18,7 +18,7 @@ import org.springframework.context.annotation.FilterType;
 import com.isaac.hydrantmap.common.entity.DistrictEntity;
 import com.isaac.hydrantmap.common.entity.HydrantEntity;
 import com.isaac.hydrantmap.common.entity.PipeTypeEntity;
-import com.isaac.hydrantmap.common.entity.ResponsibleUnitEntity;
+import com.isaac.hydrantmap.common.entity.FirehouseEntity;
 import com.isaac.hydrantmap.common.entity.WaterSourceFormEntity;
 import com.isaac.hydrantmap.project.repository.HydrantRepository;
 import com.isaac.hydrantmap.service.project.HydrantService;
@@ -58,7 +58,7 @@ public class HydrantmapProjectApplication {
 				pipeType.setName("环状");
 				hydrant.setPipeType(pipeType);
 
-				ResponsibleUnitEntity responsibleUnit = new ResponsibleUnitEntity();
+				FirehouseEntity responsibleUnit = new FirehouseEntity();
 				responsibleUnit.setName("涿鹿县中队");
 				hydrant.setResponsibleUnit(responsibleUnit);
 

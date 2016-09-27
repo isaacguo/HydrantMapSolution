@@ -11,16 +11,29 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "ResponsibleUnits")
-public class ResponsibleUnitEntity {
+public class FirehouseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 	String name;
+	
+	public Set<UnitEntity> getUnits() {
+		return units;
+	}
+
+	public void setUnits(Set<UnitEntity> units) {
+		this.units = units;
+	}
+
+	@OneToMany(mappedBy = "firehouse", cascade = CascadeType.ALL, orphanRemoval = true)//, fetch = FetchType.LAZY)
+	@JsonManagedReference("firehouse-unit")
+	Set<UnitEntity> units=new HashSet<>();
+	
 
 	public Long getId() {
 		return id;
@@ -46,16 +59,16 @@ public class ResponsibleUnitEntity {
 		this.hydrants = hydrants;
 	}
 
-	@OneToMany(mappedBy = "responsibleUnit", cascade = CascadeType.ALL, orphanRemoval = true)
-	@JsonBackReference("hydrant-responsibleUnit")
+	@OneToMany(mappedBy = "firehouse", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonManagedReference("hydrant-firehouse")
 	private Set<HydrantEntity> hydrants = new HashSet<>();
 
-	public ResponsibleUnitEntity() {
+	public FirehouseEntity() {
 		super();
 	}
 
 	@Override
 	public String toString() {
-		return "ResponsibleUnitEntity [id=" + id + ", name=" + name + ", hydrants=" + hydrants + "]";
+		return "FirehouseEntity [id=" + id + ", name=" + name + ", units=" + units + ", hydrants=" + hydrants + "]";
 	}
 }

@@ -26,9 +26,9 @@ public class HydrantEntity {
 	DistrictEntity district;
 	String address;
 	@ManyToOne(cascade = CascadeType.ALL) // (fetch=FetchType.LAZY)
-	@JoinColumn(name = "responsibleUnitId")
-	@JsonBackReference("hydrant-responsibleUnit")
-	ResponsibleUnitEntity responsibleUnit;
+	@JoinColumn(name = "firehouseId")
+	@JsonBackReference("hydrant-firehouse")
+	FirehouseEntity firehouse;
 	@ManyToOne(cascade = CascadeType.ALL) // (fetch=FetchType.LAZY)
 	@JoinColumn(name = "waterSourceFormId")
 	@JsonBackReference("hydrant-waterSourceForm")
@@ -76,8 +76,8 @@ public class HydrantEntity {
 		return pipeType;
 	}
 
-	public ResponsibleUnitEntity getResponsibleUnit() {
-		return responsibleUnit;
+	public FirehouseEntity getResponsibleUnit() {
+		return firehouse;
 	}
 
 	public String getStatus() {
@@ -122,8 +122,8 @@ public class HydrantEntity {
 		this.pipeType = pipeType;
 	}
 
-	public void setResponsibleUnit(ResponsibleUnitEntity responsibleUnit) {
-		this.responsibleUnit = responsibleUnit;
+	public void setResponsibleUnit(FirehouseEntity responsibleUnit) {
+		this.firehouse = responsibleUnit;
 	}
 
 	public void setStatus(String status) {
@@ -131,13 +131,13 @@ public class HydrantEntity {
 	}
 
 	public HydrantEntity(Long waterSourceNumber, DistrictEntity district, String address,
-			ResponsibleUnitEntity responsibleUnit, WaterSourceFormEntity waterSourceForm, String pipeDiameter,
+			FirehouseEntity firehouse, WaterSourceFormEntity waterSourceForm, String pipeDiameter,
 			PipeTypeEntity pipeType, Double longitude, Double altitude, String status) {
 		super();
 		this.waterSourceNumber = waterSourceNumber;
 		this.district = district;
 		this.address = address;
-		this.responsibleUnit = responsibleUnit;
+		this.firehouse = firehouse;
 		this.waterSourceForm = waterSourceForm;
 		this.pipeDiameter = pipeDiameter;
 		this.pipeType = pipeType;
@@ -157,7 +157,7 @@ public class HydrantEntity {
 	@Override
 	public String toString() {
 		return "HydrantEntity [id=" + id + ", waterSourceNumber=" + waterSourceNumber + ", district=" + district
-				+ ", address=" + address + ", responsibleUnit=" + responsibleUnit + ", waterSourceForm="
+				+ ", address=" + address + ", firehouse=" + firehouse + ", waterSourceForm="
 				+ waterSourceForm + ", pipeDiameter=" + pipeDiameter + ", pipeType=" + pipeType + ", longitude="
 				+ longitude + ", altitude=" + altitude + ", status=" + status + "]";
 	}
