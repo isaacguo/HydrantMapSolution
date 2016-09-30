@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.isaac.hydrantmap.activities.UnitIntroActivity">
+
+    <RelativeLayout
+        android:id="@+id/hydrant_list_topbar_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/ah_common_top_tabs_hight"
+        android:background="@color/bgcolor05"
+        >
+        <TextView
+            android:id="@+id/unit_list_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font06" android:textColor="@color/textcolor04"
+            android:layout_centerInParent="true"
+            android:text="单位详细信息"
+            />
+        <TextView  android:textSize="@dimen/font05" android:textColor="@color/textcolor02" android:gravity="center_vertical" android:id="@+id/unit_back_TextView" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="8.0dip" android:text="返回" android:drawableLeft="@drawable/returntext_selector" android:drawablePadding="5.0dip" android:layout_alignParentLeft="true" />
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/hydrant_list_topbar_layout"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/unit_item_detail_thumb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.41"/>
+        <TextView
+            android:id="@+id/unit_item_detail_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/list_items_margin"
+            android:paddingRight="5.0dip"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            android:text="unit_item_detail_name"
+            />
+        <TextView
+            android:id="@+id/unit_item_detail_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/list_items_margin"
+            android:paddingRight="5.0dip"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            android:text="unit_item_detail_address"
+            />
+        <TextView
+            android:id="@+id/unit_item_detail_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/list_items_margin"
+            android:paddingRight="5.0dip"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            android:text="unit_item_detail_description"
+            />
+        <TextView
+            android:id="@+id/unit_item_detail_firecharacters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/list_items_margin"
+            android:paddingRight="5.0dip"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            android:text="unit_item_detail_firecharacters"
+            />
+        <TextView
+            android:id="@+id/unit_item_detail_firehouse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/list_items_margin"
+            android:paddingRight="5.0dip"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            android:text="unit_item_detail_firehouse"
+            />
+        <TextView
+            android:id="@+id/unit_item_detail_personincharge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/list_items_margin"
+            android:paddingRight="5.0dip"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            android:text="unit_item_detail_personincharge"
+            />
+         <TextView
+            android:id="@+id/unit_item_detail_mobilenumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/list_items_margin"
+            android:paddingRight="5.0dip"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            android:text="unit_item_detail_mobilenumber"
+            />
+
+
+    </LinearLayout>
+
+    <!--
+    <RelativeLayout
+        android:id="@+id/building_item_detail_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/building_detail_topbar_layout"
+        android:paddingBottom="15.0dip"
+        android:paddingLeft="10.0dip"
+        android:paddingRight="10.0dip"
+        android:paddingTop="15.0dip"
+        >
+
+        <TextView
+            android:id="@+id/unit_item_detail_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/list_items_margin"
+            android:paddingRight="5.0dip"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            android:text="name"
+            />
+        <TextView
+            android:id="@+id/unit_item_detail_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/list_items_margin"
+            android:paddingRight="5.0dip"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            android:text="address"
+            android:layout_below="@id/unit_item_detail_name"
+            />
+        </RelativeLayout>
+-->
+
+</RelativeLayout>

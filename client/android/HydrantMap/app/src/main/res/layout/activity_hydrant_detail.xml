@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".activities.HydrantDetailActivity"
+    >
+
+    <RelativeLayout
+        android:id="@+id/hydrant_detail_topbar_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/ah_common_top_tabs_hight"
+        android:background="@color/bgcolor05"
+        >
+
+        <LinearLayout
+            android:id="@+id/hydrant_detail_function_layout_left"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="8.0dip"
+            android:layout_marginLeft="8dip"
+            android:layout_marginTop="8.0dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/hydrant_detail_navigation_left_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="5dip"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/textcolor02"
+                android:textSize="@dimen/font05"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="消防栓详细信息"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font06"
+
+            />
+
+        <LinearLayout
+            android:id="@+id/hydrant_detail_function_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="8.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="8.0dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/hydrant_detail_navigation_right2_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginRight="5.0dip"
+                android:gravity="center"
+                android:text="完成"
+                android:textColor="@color/textcolor02"
+                android:textSize="@dimen/font05"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/hydrant_item_detail_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hydrant_detail_topbar_layout"
+        android:paddingBottom="15.0dip"
+        android:paddingLeft="10.0dip"
+        android:paddingRight="10.0dip"
+        android:paddingTop="15.0dip"
+        >
+
+        <TextView
+            android:id="@+id/hydrant_item_detail_scope"
+            android:layout_width="33.0dip"
+            android:layout_height="20.0dip"
+            android:background="@color/textcolor11"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="4S"
+            android:textColor="@color/textcolor09"
+            android:textSize="@dimen/font01"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/hydrant_item_detail_name_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/hydrant_item_detail_scope"
+            android:layout_margin="@dimen/list_items_margin"
+            android:layout_toRightOf="@id/hydrant_item_detail_scope"
+            android:singleLine="true"
+            android:text="水源编号: "
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            />
+
+
+        <EditText
+            android:id="@+id/hydrant_item_detail_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/hydrant_item_detail_scope"
+            android:layout_margin="@dimen/list_items_margin"
+            android:layout_toRightOf="@id/hydrant_item_detail_name_title"
+            android:background="@android:color/transparent"
+            android:singleLine="true"
+            android:text="title"
+            android:textSize="@dimen/font05"
+            />
+
+
+        <TextView
+            android:id="@+id/hydrant_item_detail_state_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hydrant_item_detail_name"
+            android:layout_margin="@dimen/list_items_margin"
+            android:paddingRight="5.0dip"
+            android:text="当前状态: "
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            />
+
+        <TextView
+            android:id="@+id/hydrant_item_detail_tvState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hydrant_item_detail_name"
+            android:layout_margin="@dimen/list_items_margin"
+            android:layout_toRightOf="@id/hydrant_item_detail_state_title"
+            android:background="@android:color/transparent"
+            android:text="NULL"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            />
+
+        <TextView
+            android:id="@+id/hydrant_item_detail_water_pressure_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hydrant_item_detail_state_title"
+            android:layout_margin="@dimen/list_items_margin"
+            android:text="当前水压: "
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            />
+
+        <TextView
+            android:id="@+id/hydrant_item_detail_water_pressure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hydrant_item_detail_state_title"
+            android:layout_margin="@dimen/list_items_margin"
+            android:layout_toRightOf="@id/hydrant_item_detail_water_pressure_title"
+            android:background="@android:color/transparent"
+            android:text="0.3"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            />
+
+        <TextView
+            android:id="@+id/hydrant_item_detail_water_pressure_mpa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hydrant_item_detail_state_title"
+            android:layout_margin="@dimen/list_items_margin"
+            android:layout_toRightOf="@id/hydrant_item_detail_water_pressure"
+            android:background="@android:color/transparent"
+            android:text="MPa"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            />
+
+        <TextView
+            android:id="@+id/hydrant_item_detail_location_desc_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hydrant_item_detail_water_pressure_title"
+            android:layout_margin="@dimen/list_items_margin"
+            android:paddingRight="5.0dip"
+            android:text="详细位置: "
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+
+            />
+
+        <EditText
+            android:id="@+id/hydrant_item_detail_location_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hydrant_item_detail_water_pressure"
+            android:layout_margin="@dimen/list_items_margin"
+            android:layout_toRightOf="@id/hydrant_item_detail_location_desc_title"
+            android:background="@android:color/transparent"
+            android:paddingRight="5.0dip"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            />
+
+        <TextView
+            android:id="@+id/hydrant_item_detail_unit_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hydrant_item_detail_location_desc"
+            android:layout_margin="@dimen/list_items_margin"
+            android:paddingRight="5.0dip"
+            android:singleLine="true"
+            android:text="辖区中队: "
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            />
+
+        <EditText
+            android:id="@+id/hydrant_item_detail_unit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hydrant_item_detail_location_desc"
+            android:layout_margin="@dimen/list_items_margin"
+            android:layout_toRightOf="@id/hydrant_item_detail_unit_title"
+            android:background="@android:color/transparent"
+            android:paddingRight="5.0dip"
+            android:singleLine="true"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            />
+
+        <TextView
+            android:id="@+id/hydrant_item_detail_district_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hydrant_item_detail_unit"
+            android:layout_margin="@dimen/list_items_margin"
+            android:paddingRight="5.0dip"
+            android:singleLine="true"
+            android:text="行政区域: "
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            />
+
+        <EditText
+            android:id="@+id/hydrant_item_detail_district"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hydrant_item_detail_unit"
+            android:layout_margin="@dimen/list_items_margin"
+            android:layout_toRightOf="@id/hydrant_item_detail_district_title"
+            android:background="@android:color/transparent"
+            android:paddingRight="5.0dip"
+            android:singleLine="true"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            />
+
+        <TextView
+            android:id="@+id/hydrant_item_detail_maintenance_date_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hydrant_item_detail_district"
+            android:layout_margin="@dimen/list_items_margin"
+            android:paddingRight="5.0dip"
+            android:singleLine="true"
+            android:text="维护日期: "
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            />
+
+        <EditText
+            android:id="@+id/hydrant_item_detail_maintenance_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hydrant_item_detail_district"
+            android:layout_margin="@dimen/list_items_margin"
+            android:layout_toRightOf="@id/hydrant_item_detail_maintenance_date_title"
+            android:background="@android:color/transparent"
+            android:paddingRight="5.0dip"
+            android:singleLine="true"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            />
+
+        <TextView
+            android:id="@+id/hydrant_item_detail_location_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hydrant_item_detail_maintenance_date_title"
+            android:layout_margin="@dimen/list_items_margin"
+            android:text="位置:"
+            android:textColor="@color/textcolor04"
+            android:textSize="@dimen/font05"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hydrant_item_detail_maintenance_date_title"
+            android:layout_toRightOf="@id/hydrant_item_detail_location_title"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/tvSetCurrentLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_items_margin"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|left"
+                android:paddingLeft="10dp"
+                android:text="设置为当前位置"
+                android:textColor="@color/textcolor04"
+                android:textSize="@dimen/font05"
+                />
+
+            <TextView
+                android:id="@+id/tvSetMapCenter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/list_items_margin"
+                android:layout_weight="1"
+                android:gravity="right|center_horizontal"
+                android:text="设置为地图中心位置"
+                android:textColor="@color/textcolor04"
+                android:textSize="@dimen/font05"
+                />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hydrant_item_detail_layout">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.baidu.mapapi.map.MapView
+                android:id="@+id/hydrant_detail_bdMapView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:drawableLeft="@drawable/centerdot"/>
+
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/hydrant_detail_locateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="50dip"
+        android:layout_marginLeft="10dip">
+
+        <TextView
+            android:id="@+id/hydrant_detail_tvLocateMyself"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/locatewhite"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -12,3 +12,7 @@ RemoteSystemsTempFiles/
 .targets.xml
 hs_err_pid*
 .recommenders
+**/.gradle
+**/.idea
+.DS_Store
+**/captures

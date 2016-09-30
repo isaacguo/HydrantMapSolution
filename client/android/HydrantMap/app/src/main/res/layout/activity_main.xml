@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".MainActivity"
+    >
+    <RelativeLayout
+        android:id="@+id/hydrant_list_topbar_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/ah_common_top_tabs_hight"
+        android:background="@color/bgcolor05"
+        >
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/function_layout_left" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginTop="8.0dip" android:layout_marginLeft="8dip" android:layout_marginBottom="8.0dip" android:layout_alignParentLeft="true"  android:layout_centerVertical="true"
+            >
+            <TextView android:textSize="@dimen/font05" android:textColor="@color/textcolor02" android:gravity="center" android:id="@+id/navigation_left_TextView" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="5dip" android:drawableLeft="@drawable/barcode"/>
+            <TextView android:textSize="@dimen/font05" android:textColor="@color/textcolor02" android:gravity="center" android:id="@+id/navigation_left2_TextView" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="20.0dip" />
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/hydrant_list_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font06" android:textColor="@color/textcolor04"
+            android:layout_centerInParent="true"
+            android:text="消防栓列表DEMO"
+
+            />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/function_layout" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginTop="8.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="8.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+            <TextView android:textSize="@dimen/font05" android:textColor="@color/textcolor02" android:gravity="center" android:id="@+id/navigation_right_TextView" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="20.0dip" android:text="地图" />
+            <TextView android:textSize="@dimen/font05" android:textColor="@color/textcolor02" android:gravity="center" android:id="@+id/navigation_right2_TextView" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="5.0dip" android:text="设置" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/hydrantList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hydrant_list_topbar_layout">
+    </ListView>
+</RelativeLayout>
