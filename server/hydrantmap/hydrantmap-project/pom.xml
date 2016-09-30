@@ -15,7 +15,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../</relativePath> <!-- lookup parent from repository -->
 	</parent>
-	
+
 
 
 	<dependencies>
@@ -53,6 +53,7 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-feign</artifactId>
 		</dependency>
+
 
 		<dependency>
 			<groupId>com.h2database</groupId>

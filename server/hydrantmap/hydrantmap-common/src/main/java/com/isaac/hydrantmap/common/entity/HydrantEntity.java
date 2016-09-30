@@ -10,6 +10,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.isaac.hydrantmap.common.HydrantForm;
+import com.isaac.hydrantmap.common.HydrantStatus;
+import com.isaac.hydrantmap.common.WayToAcquireWater;
 
 @Entity
 @Table(name = "Hydrants")
@@ -18,147 +22,204 @@ public class HydrantEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
-	Long waterSourceNumber;
 
-	@ManyToOne(cascade = CascadeType.ALL) // (fetch=FetchType.LAZY)
-	@JoinColumn(name = "districtId")
-	@JsonBackReference("hydrant-district")
-	DistrictEntity district;
-	String address;
-	@ManyToOne(cascade = CascadeType.ALL) // (fetch=FetchType.LAZY)
+	/**
+	 * 辖区中队
+	 */
+	@ManyToOne // (fetch=FetchType.LAZY)
 	@JoinColumn(name = "firehouseId")
-	@JsonBackReference("hydrant-firehouse")
 	FirehouseEntity firehouse;
-	@ManyToOne(cascade = CascadeType.ALL) // (fetch=FetchType.LAZY)
-	@JoinColumn(name = "waterSourceFormId")
-	@JsonBackReference("hydrant-waterSourceForm")
-	WaterSourceFormEntity waterSourceForm;
-	String pipeDiameter;
-	@ManyToOne(cascade = CascadeType.ALL) // (fetch=FetchType.LAZY)
-	@JoinColumn(name = "pipeTypeId")
-	@JsonBackReference("hydrant-pipeType")
-	PipeTypeEntity pipeType;
+
+	/**
+	 * 水源编号
+	 */
+	Long hydrantUniqueId;
+
+	/**
+	 * 行政区
+	 */
+	@ManyToOne
+	@JoinColumn(name = "regionId")
+	RegionEntity region;
+
+	/**
+	 * 详细位置
+	 */
+	String address;
+
+	/**
+	 * 水源形式
+	 */
+	HydrantForm hydrantForm;
+
+	boolean unlimitedWaterStorageCapacity;
+	public boolean isUnlimitedWaterStorageCapacity() {
+		return unlimitedWaterStorageCapacity;
+	}
+
+	public void setUnlimitedWaterStorageCapacity(boolean unlimitedWaterStorageCapacity) {
+		this.unlimitedWaterStorageCapacity = unlimitedWaterStorageCapacity;
+	}
+
+	/**
+	 * 储水量
+	 */
+	Long waterStorageCapacity;
+
+	/**
+	 * 取水方式
+	 */
+	WayToAcquireWater wayToAcquireWater; 
+	
+	
+	/**
+	 * 经度
+	 */
 	Double longitude;
+	
+	/**
+	 * 纬度
+	 */
 	Double altitude;
-	String status;
-
-	public HydrantEntity() {
-		super();
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public Double getAltitude() {
-		return altitude;
-	}
-
-	public DistrictEntity getDistrict() {
-		return district;
-	}
+	
+	/**
+	 * 状态
+	 */
+	HydrantStatus status;
 
 	public Long getId() {
 		return id;
-	}
-
-	public Double getLongitude() {
-		return longitude;
-	}
-
-
-
-	public String getPipeDiameter() {
-		return pipeDiameter;
-	}
-
-	public PipeTypeEntity getPipeType() {
-		return pipeType;
-	}
-
-	public FirehouseEntity getResponsibleUnit() {
-		return firehouse;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public WaterSourceFormEntity getWaterSourceForm() {
-		return waterSourceForm;
-	}
-
-	public Long getWaterSourceNumber() {
-		return waterSourceNumber;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public void setAltitude(Double altitude) {
-		this.altitude = altitude;
-	}
-
-	public void setDistrict(DistrictEntity district) {
-		this.district = district;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+	public FirehouseEntity getFirehouse() {
+		return firehouse;
+	}
+
+	public void setFirehouse(FirehouseEntity firehouse) {
+		this.firehouse = firehouse;
+	}
+
+	public Long getHydrantUniqueId() {
+		return hydrantUniqueId;
+	}
+
+	public void setHydrantUniqueId(Long hydrantUniqueId) {
+		this.hydrantUniqueId = hydrantUniqueId;
+	}
+
+	public RegionEntity getRegion() {
+		return region;
+	}
+
+	public void setRegion(RegionEntity region) {
+		this.region = region;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public HydrantForm getHydrantForm() {
+		return hydrantForm;
+	}
+
+	public void setHydrantForm(HydrantForm hydrantForm) {
+		this.hydrantForm = hydrantForm;
+	}
+
+	public Long getWaterStorageCapacity() {
+		return waterStorageCapacity;
+	}
+
+	public void setWaterStorageCapacity(Long waterStorageCapacity) {
+		this.waterStorageCapacity = waterStorageCapacity;
+	}
+
+	public WayToAcquireWater getWayToAcquireWater() {
+		return wayToAcquireWater;
+	}
+
+	public void setWayToAcquireWater(WayToAcquireWater wayToAcquireWater) {
+		this.wayToAcquireWater = wayToAcquireWater;
+	}
+
+	public Double getLongitude() {
+		return longitude;
+	}
+
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
 
-	
-
-	public void setPipeDiameter(String pipeDiameter) {
-		this.pipeDiameter = pipeDiameter;
+	public Double getAltitude() {
+		return altitude;
 	}
 
-	public void setPipeType(PipeTypeEntity pipeType) {
-		this.pipeType = pipeType;
+	public void setAltitude(Double altitude) {
+		this.altitude = altitude;
 	}
 
-	public void setResponsibleUnit(FirehouseEntity responsibleUnit) {
-		this.firehouse = responsibleUnit;
+	public HydrantStatus getStatus() {
+		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(HydrantStatus status) {
 		this.status = status;
 	}
 
-	public HydrantEntity(Long waterSourceNumber, DistrictEntity district, String address,
-			FirehouseEntity firehouse, WaterSourceFormEntity waterSourceForm, String pipeDiameter,
-			PipeTypeEntity pipeType, Double longitude, Double altitude, String status) {
+	@Override
+	public String toString() {
+		return "HydrantEntity [id=" + id + ", firehouse=" + firehouse + ", hydrantUniqueId=" + hydrantUniqueId
+				+ ", region=" + region + ", address=" + address + ", hydrantForm=" + hydrantForm
+				+ ", unlimitedWaterStorageCapacity=" + unlimitedWaterStorageCapacity + ", waterStorageCapacity="
+				+ waterStorageCapacity + ", wayToAcquireWater=" + wayToAcquireWater + ", longitude=" + longitude
+				+ ", altitude=" + altitude + ", status=" + status + "]";
+	}
+
+	public HydrantEntity() {
 		super();
-		this.waterSourceNumber = waterSourceNumber;
-		this.district = district;
-		this.address = address;
+	}
+
+	public HydrantEntity(Long id, FirehouseEntity firehouse, Long hydrantUniqueId, RegionEntity region, String address,
+			HydrantForm hydrantForm, boolean unlimitedWaterStorageCapacity, Long waterStorageCapacity,
+			WayToAcquireWater wayToAcquireWater, Double longitude, Double altitude, HydrantStatus status) {
+		super();
+		this.id = id;
 		this.firehouse = firehouse;
-		this.waterSourceForm = waterSourceForm;
-		this.pipeDiameter = pipeDiameter;
-		this.pipeType = pipeType;
+		this.hydrantUniqueId = hydrantUniqueId;
+		this.region = region;
+		this.address = address;
+		this.hydrantForm = hydrantForm;
+		this.unlimitedWaterStorageCapacity = unlimitedWaterStorageCapacity;
+		this.waterStorageCapacity = waterStorageCapacity;
+		this.wayToAcquireWater = wayToAcquireWater;
 		this.longitude = longitude;
 		this.altitude = altitude;
 		this.status = status;
 	}
 
-	public void setWaterSourceForm(WaterSourceFormEntity waterSourceForm) {
-		this.waterSourceForm = waterSourceForm;
-	}
+	
+	
+	
+	/*
+	String pipeDiameter;
+	@ManyToOne(cascade = CascadeType.ALL) // (fetch=FetchType.LAZY)
+	@JoinColumn(name = "pipeTypeId")
+	@JsonBackReference("hydrant-pipeType")
+	PipeTypeEntity pipeType;
+	*/
+	
+	
+	
 
-	public void setWaterSourceNumber(Long waterSourceNumber) {
-		this.waterSourceNumber = waterSourceNumber;
-	}
 
-	@Override
-	public String toString() {
-		return "HydrantEntity [id=" + id + ", waterSourceNumber=" + waterSourceNumber + ", district=" + district
-				+ ", address=" + address + ", firehouse=" + firehouse + ", waterSourceForm="
-				+ waterSourceForm + ", pipeDiameter=" + pipeDiameter + ", pipeType=" + pipeType + ", longitude="
-				+ longitude + ", altitude=" + altitude + ", status=" + status + "]";
-	}
+	
 }

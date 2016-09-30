@@ -21,9 +21,9 @@ public class PipeTypeEntity {
 	Long id;
 	String name;
 	
-	@OneToMany(mappedBy = "pipeType", cascade = CascadeType.ALL, orphanRemoval = true)
-	@JsonBackReference("hydrant-pipeType")
-	private Set<HydrantEntity> hydrants= new HashSet<>();
+	//@OneToMany(mappedBy = "pipeType", cascade = CascadeType.ALL, orphanRemoval = true)
+	//@JsonBackReference("hydrant-pipeType")
+	//private Set<HydrantEntity> hydrants= new HashSet<>();
 
 	public PipeTypeEntity() {
 		super();
@@ -31,7 +31,7 @@ public class PipeTypeEntity {
 
 	@Override
 	public String toString() {
-		return "PipeTypeEntity [id=" + id + ", name=" + name + ", hydrants=" + hydrants + "]";
+		return "PipeTypeEntity [id=" + id + ", name=" + name + "]";
 	}
 
 	public Long getId() {
@@ -49,7 +49,7 @@ public class PipeTypeEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+/*
 	public Set<HydrantEntity> getHydrants() {
 		return hydrants;
 	}
@@ -57,4 +57,5 @@ public class PipeTypeEntity {
 	public void setHydrants(Set<HydrantEntity> hydrants) {
 		this.hydrants = hydrants;
 	}
+	*/
 }
