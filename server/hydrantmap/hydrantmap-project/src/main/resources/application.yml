@@ -7,6 +7,14 @@ spring:
   jpa:
     show-sql: true
     
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: hydrant_p4ssw0rd
+    key-store-type: PKCS12
+    key-alias: tomcat
+    
     
     
     
