@@ -43,6 +43,9 @@ public class UnitEntity {
 	String thumbPicturePath;
 	String planDiagramPath;
 	
+	Double longitude;
+	Double altitude;
+	
 	
 	
 	@Override
