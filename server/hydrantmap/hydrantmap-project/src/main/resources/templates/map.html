@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Hello, World</title>
+<!-- 加载百度地图样式信息窗口 -->
+<script type="text/javascript"
+	src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<link rel="stylesheet"
+	href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+<!-- 加载城市列表 -->
+<script type="text/javascript"
+	src="http://api.map.baidu.com/library/CityList/1.2/src/CityList_min.js"></script>
+<style type="text/css">
+html {
+	height: 100%
+}
+
+body {
+	height: 100%;
+	margin: 0px;
+	padding: 0px
+}
+
+#container {
+	height: 90%
+}
+</style>
+<script type="text/javascript"
+	src="http://api.map.baidu.com/api?v=2.0&amp;ak=ZTYHyhGcveehIbLHB5p546BaI5BUr6ua">
+	
+</script>
+</head>
+
+<body>
+	<div id="container"></div>
+	<div id="result">
+		<button id="open">打开</button>
+		<button id="close">关闭</button>
+	</div>
+	<script type="text/javascript">
+		var map = new BMap.Map("container"); // 创建地图实例  
+		var point = new BMap.Point(116.404, 39.915); // 创建点坐标  
+
+		var customLayer;
+		map.addControl(new BMap.NavigationControl());
+		map.addControl(new BMap.ScaleControl());
+		map.addControl(new BMap.OverviewMapControl());
+		map.addControl(new BMap.MapTypeControl());
+
+		map.enableScrollWheelZoom(); //启用滚轮放大缩小，默认禁用
+		map.enableContinuousZoom(); //启用地图惯性拖拽，默认禁用
+
+		map.centerAndZoom(point, 15); // 初始化地图，设置中心点坐标和地图级别  
+
+		var x = 115.2724;
+		var y = 40.9619;
+		var ggPoint = new BMap.Point(x, y);
+
+		//customLayer.addEventListener('hotspotclick',callback);
+
+		//坐标转换完之后的回调函数
+		translateCallback = function(data) {
+			if (data.status === 0) {
+				var marker = new BMap.Marker(data.points[0]);
+				map.addOverlay(marker);
+				var label = new BMap.Label("转换后的百度坐标（正确）", {
+					offset : new BMap.Size(20, -10)
+				});
+				marker.setLabel(label); //添加百度label
+				map.setCenter(data.points[0]);
+			}
+		}
+		/*
+		 setTimeout(function(){
+		 var convertor = new BMap.Convertor();
+		 var pointArr = [];
+		 pointArr.push(ggPoint);
+		 convertor.translate(pointArr, 1, 5, translateCallback)
+		 }, 1000);
+		 */
+
+		function addCustomLayer(keyword) {
+			if (customLayer) {
+				map.removeTileLayer(customLayer);
+			}
+			customLayer = new BMap.CustomLayer({
+				geotableId : 153839,
+				q : '', //检索关键字
+				tags : '', //空格分隔的多字符串
+				filter : '' //过滤条件,参考http://developer.baidu.com/map/lbs-geosearch.htm#.search.nearby
+			});
+			map.addTileLayer(customLayer);
+			//customLayer.addEventListener('hotspotclick',callback);
+		};
+		document.getElementById("open").onclick = function() {
+			addCustomLayer();
+		};
+		document.getElementById("open").click();
+
+		document.getElementById("close").onclick = function() {
+			if (customLayer) {
+				map.removeTileLayer(customLayer);
+			}
+		};
+	</script>
+
+
+
+</body>
+</html>
